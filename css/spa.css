@@ -14,9 +14,10 @@
 	left:0px;
 	right: 0px;
 	height: 40px;
-	background: #777777;
+	background: #888888;
 	min-width: 500px;
 }
+
 .spa-shell-head-logo {
 	top:4px;
 	left:4px;
@@ -67,10 +68,12 @@
 	left: 0;
 	background: #444444;
 	font-size: 16px;
+	overflow: auto;
 }
 
 #sidenav-container {
 	padding: 0;
+	overflow: auto;
 }
 
 .side-nav-item {
@@ -114,6 +117,7 @@
 	left: 30px;
 	width: 250px;
 	background: #555555;
+	overflow: auto;
 }
 
 .spa-x-closed .spa-shell-main-nav {
@@ -121,10 +125,11 @@
 }
 
 .spa-shell-main-content {
-	margin:10px;
+	margin:0px;
 	left: 280px;
 	right: 0;
 	background: #ddd;
+	overflow: auto;
 }
 
 .spa-x-closed .spa-shell-main-content {

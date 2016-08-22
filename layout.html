@@ -10,11 +10,44 @@
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/font-awesome/font-awesome.css" rel="stylesheet">
 
+	<style>
+		#box {
+			width: 800px;
+			height: 600px;
+			/*border-color: #9cae4c;*/
+			/*border-width: 1px;*/
+			/*border-style: solid;*/
+			margin:0 auto;
+			position: relative;
+		}
+		.canvas {
+			position:absolute;
+			/*background: #dddddd;*/
+			/*border-style: dashed;*/
+			/*border-width: 1px;*/
+			/*border-color: #1b6d85;*/
+			margin-left: -400px;
+			margin-top: -300px;
+			left: 50%;
+			top: 50%;
+			/*opacity: 0.5;*/
+		}
+		:focus {
+			outline: 0;
+		}
 
+		#block {
+			background: #00ff00;
+		}
+
+	</style>
 
 	<script src="jquery/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="css/metismenu/metisMenu.js"></script>
+
+	<script src="js/myFunction.js"></script>
+	<script src="js/panels.js"></script>
 
 	<script>
 		(function ($) {
@@ -116,13 +149,47 @@
 				 </nav>
 
 
+
+
+				 <div id="form">
+					 <label>row</label>
+					 <input id="row" value="2" type="number"><br>
+					 <label>col</label>
+					 <input id="col" value="2" type="number"><br>
+					 <button onclick="setBackRect();">设置视频墙</button>
+					 <!--<label id="block">widget</label>-->
+					 <!--<button id="test" onclick="test();">test</button>-->
+					 <br>
+					 <label>row</label>
+					 <input id="gridrow" value="4" type="number"><br>
+					 <label>col</label>
+					 <input id="gridcol" value="4" type="number"><br>
+					 <button onclick="setGrid();">设置网格</button>
+					 <br>
+					 <label>显示网格</label>
+					 <input type="checkbox" id="showgrid" onclick="checkShowGrid();"/><br>
+					 <label>吸附网格</label>
+					 <input type="checkbox" id="adsorb" onclick="checkAdsorb();"/><br>
+					 <button id="toFrontWidget" onclick="toFront();">置顶</button>
+					 <button id="toBackWidget" onclick="toBack();">置底</button>
+					 <button id="deleteWidget" onclick="deleteWidget();">删除</button>
+
+
+				 </div>
+
 			 </div>
 			<div class="spa-shell-main-content">
-
-
+				<div id="box">
+					<canvas class="canvas" id="backgroundArea" width="800px" height="600px"></canvas>
+					<canvas class="canvas" id="drawArea" width="800px" height="600px"></canvas>
+					<canvas class="canvas" id="ctrlGridArea" width="800px" height="600px"></canvas>
+					<canvas class="canvas" id="frontArea" width="800px" height="600px"></canvas>
+                </div>
 			</div>
 		</div>
-		<div class="spa-shell-foot"></div>
+		<div class="spa-shell-foot">
+			<label id="info">info</label>
+		</div>
 		<!--<div class="spa-shell-modal"></div>-->
 	</div>
 </body>
