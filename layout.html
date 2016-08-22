@@ -20,9 +20,12 @@
 		(function ($) {
 		    var FunctionSelected = 0;
 			$(function () {
-				$("#main-menu").metisMenu({
+				$(".main-menu").metisMenu({
 					toggle:false
 				});
+
+				$("#sidenav-container>li:first").addClass("selected");
+				$("#platformConfig").hide();
 
 				$("#sidenav-container>li").click(function () {
 					FunctionSelected = $(this).index();
@@ -30,8 +33,12 @@
 					$(this).addClass("selected");
 					switch (FunctionSelected) {
 						case 0:
+							$("#platformUsage").show();
+							$("#platformConfig").hide();
 							break;
 						case 1:
+							$("#platformConfig").show();
+							$("#platformUsage").hide();
 							break;
 					}
 				});
@@ -60,10 +67,34 @@
 			</div>
 			 <div class="spa-shell-main-nav">
 
-				 <nav class="navbar navbar-side" role="navigation">
+				 <nav id="platformUsage" class="navbar navbar-side" role="navigation">
 					 <div class="sidebar-collapse">
-						 <ul class="nav" id="main-menu">
+						 <ul class="main-menu nav" id="main-menu-platformUsage">
 							 <li> <a href="#"> <i class="fa fa-desktop"></i>Home </a> </li>
+							 <li>
+								 <a href="#"><i class="fa fa-edit"></i>the company<span class="fa arrow"></span> </a>
+								 <ul class="nav nav-second-level">
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink one</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink two</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink three</a> </li>
+								 </ul>
+							 </li>
+							 <li>
+								 <a href="#"> <i class="fa fa-git"></i>git<span class="fa arrow"></span> </a>
+								 <ul class="nav nav-second-level">
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink hello</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink lisper</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink slang</a> </li>
+								 </ul>
+							 </li>
+						 </ul>
+					 </div>
+				 </nav>
+
+				 <nav id="platformConfig" class="navbar navbar-side" role="navigation">
+					 <div class="sidebar-collapse">
+						 <ul class="main-menu nav" id="main-menu-platformConfig">
+							 <li> <a href="#"> <i class="fa fa-desktop"></i>Second </a> </li>
 							 <li>
 								 <a href="#"><i class="fa fa-edit"></i>the company<span class="fa arrow"></span> </a>
 								 <ul class="nav nav-second-level">
