@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>layout</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="css/spa.css"/>
+	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/font-awesome/font-awesome.css" rel="stylesheet">
+
+
+
+	<script src="jquery/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="css/metismenu/metisMenu.js"></script>
+
+	<script>
+		(function ($) {
+		    var FunctionSelected = 0;
+			$(function () {
+				$("#main-menu").metisMenu({
+					toggle:false
+				});
+
+				$("#sidenav-container>li").click(function () {
+					FunctionSelected = $(this).index();
+					$(".side-nav-item").removeClass("selected");
+					$(this).addClass("selected");
+					switch (FunctionSelected) {
+						case 0:
+							break;
+						case 1:
+							break;
+					}
+				});
+			});
+
+		})(jQuery);
+
+	</script>
+
+</head>
+<body>
+<div id="spa">
+	<div class="spa-shell-head">
+		<div class="spa-shell-head-logo"> </div>
+			<div class="spa-shell-head-func"> </div>
+			<div class="spa-shell-head-acct"></div>
+			<div class="spa-shell-head-search"></div>
+		</div>
+		<div class="spa-shell-main">
+		 <!--<div class="spa-shell-main spa-x-closed">-->
+			<div class="spa-shell-main-side-nav">
+				<ul id="sidenav-container">
+					<li class="side-nav-item">平台使用</li>
+					<li class="side-nav-item">平台配置</li>
+				</ul>
+			</div>
+			 <div class="spa-shell-main-nav">
+
+				 <nav class="navbar navbar-side" role="navigation">
+					 <div class="sidebar-collapse">
+						 <ul class="nav" id="main-menu">
+							 <li> <a href="#"> <i class="fa fa-desktop"></i>Home </a> </li>
+							 <li>
+								 <a href="#"><i class="fa fa-edit"></i>the company<span class="fa arrow"></span> </a>
+								 <ul class="nav nav-second-level">
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink one</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink two</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink three</a> </li>
+								 </ul>
+							 </li>
+							 <li>
+								 <a href="#"> <i class="fa fa-git"></i>git<span class="fa arrow"></span> </a>
+								 <ul class="nav nav-second-level">
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink hello</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink lisper</a> </li>
+									 <li> <a class="tab-item" href="#"><i class="fa fa-desktop"></i>Hlink slang</a> </li>
+								 </ul>
+							 </li>
+						 </ul>
+					 </div>
+				 </nav>
+
+
+			 </div>
+			<div class="spa-shell-main-content">
+
+
+			</div>
+		</div>
+		<div class="spa-shell-foot"></div>
+		<!--<div class="spa-shell-modal"></div>-->
+	</div>
+</body>
+</html>

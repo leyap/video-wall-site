@@ -1,0 +1,155 @@
+
+/*==============================================
+    GENERAL  STYLES    
+    =============================================*/
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*MAIN WRAPPER DIV*/
+
+#wrapper {
+    width: 100%;
+    margin-top:50px;
+}
+/*MAIN PAGE DIV*/
+#page-wrapper {
+    padding: 15px 15px;
+    min-height: 700px;
+    background:#929392;
+
+}
+/*THE CONTENT PORTION DIV*/
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:#676767!important;
+    padding:10px;
+    min-height:700px;
+}
+
+/*==============================================
+    MENU STYLES    
+    =============================================*/
+#main-menu i.fa{
+    margin-right:15px!important;
+
+}
+.navbar-inverse {
+    background-color: #666665;
+    border-color: #F3F3F3;
+}
+.navbar a:hover{
+    color:#000!important;
+}
+.arrow {
+    float: right;
+}
+
+.fa.arrow:before {
+    content: "\f104";
+}
+
+.active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+
+.nav-second-level li,
+.nav-third-level li {
+    border-bottom: none !important;
+}
+
+.nav-second-level li a {
+    padding-left: 37px;
+}
+
+.nav-third-level li a {
+    padding-left: 55px;
+}
+.sidebar-collapse , .sidebar-collapse .nav{
+    background:none;
+}
+.sidebar-collapse .nav {
+    padding:0;
+}
+.sidebar-collapse .nav > li > a {
+    background: #777777;
+    text-shadow: none;
+    color:#000;
+}
+.sidebar-collapse > .nav > li > a {
+    padding: 10px 10px;
+}
+.sidebar-collapse > .nav > li {
+    border-bottom: 1px solid rgba(20,20,20, 0.1) !important;
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
+
+    background:#5e5e5e;
+    outline:0;
+}
+.nav-second-level  > li:last-child > a:after,
+.nav-third-level  > li:last-child > a:after {
+    height:50%;
+}
+.nav-third-level > li > a:after,
+.nav-third-level > li > a:before  {
+    left:40px;
+}
+.navbar-side {
+    border:none;
+    background-color: #333333;
+
+}
+
+.navbar-toggle {
+    background-color: black;
+}
+
+
+#page-wrapper{
+    margin: 0 0 0 250px;
+    padding: 15px 30px;
+    min-height: 700px;
+
+}
+
+
+.navbar-side {
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+}
+
+/*==============================================
+    MEDIA QUERIES
+
+@media(min-width:768px) {
+    #page-wrapper{
+        margin: 0 0 0 250px;
+        padding: 15px 30px;
+        min-height: 700px;
+
+    }
+
+
+    .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+    }
+
+}
+@media(max-width:767px) {
+
+
+    .navbar {
+        min-height: 0px!important;
+        margin-bottom: 0px!important;
+    }
+
+}
+
+    =============================================*/

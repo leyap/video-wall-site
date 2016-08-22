@@ -1,0 +1,153 @@
+* {
+	outline: none;
+	margin:0;
+	padding:0;
+	border: none;
+}
+
+[class^="spa-shell"] {
+	position: absolute;
+}
+
+.spa-shell-head {
+	top:0px;
+	left:0px;
+	right: 0px;
+	height: 40px;
+	background: #777777;
+	min-width: 500px;
+}
+.spa-shell-head-logo {
+	top:4px;
+	left:4px;
+	width: 128px;
+	height: 32px;
+	background: #555555;
+}
+
+.spa-shell-head-func {
+	top:4px;
+	left:250px;
+	width: 200px;
+	height: 32px;
+	background: #5cb85c;
+}
+
+.spa-shell-head-acct {
+	top:4px;
+	right:0px;
+	width: 64px;
+	height: 32px;
+	background: #5cb85c;
+}
+
+.spa-shell-head-search {
+	top:4px;
+	right:64px;
+	width: 248px;
+	height: 32px;
+	background: #2aabd2;
+}
+
+.spa-shell-main {
+	top:40px;
+	bottom: 40px;
+	left:0px;
+	right: 0px;
+	background: #667766;
+}
+
+[class^=spa-shell-main-] {
+	top:0;
+	bottom: 0;
+}
+
+.spa-shell-main-side-nav {
+	width: 30px;
+	left: 0;
+	background: #444444;
+	font-size: 16px;
+}
+
+#sidenav-container {
+	padding: 0;
+}
+
+.side-nav-item {
+	background: #999999;
+	color: #222;
+	display: block;
+	left: 0;
+	/*margin: 0;*/
+	/*padding:1px;*/
+    border: 1px solid #444444;
+
+	list-style:none;
+	position: relative;
+	width: 30px;
+	height: 100px;
+    text-align: center;
+	position: relative;
+	width:100%;
+	height:100%;
+
+	moz-user-select: -moz-none;
+	-moz-user-select: none;
+	-o-user-select:none;
+	-khtml-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+
+.selected {
+	background: #1b6d85;
+	color: #000;
+	/*background: #777777;*/
+}
+
+.side-nav-item:hover {
+	cursor: pointer;
+}
+
+.spa-shell-main-nav {
+	left: 30px;
+	width: 250px;
+	background: #555555;
+}
+
+.spa-x-closed .spa-shell-main-nav {
+	width: 0px;
+}
+
+.spa-shell-main-content {
+	margin:10px;
+	left: 280px;
+	right: 0;
+	background: #ddd;
+}
+
+.spa-x-closed .spa-shell-main-content {
+	left:0;
+}
+
+.spa-shell-foot {
+	bottom: 0;
+	left:0;
+	right:0;
+	height: 40px;
+	background: #5e5e5e;
+}
+
+.spa-shell-modal {
+	margin-top: -200px;
+	margin-left:-200px;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	background: #fff;
+	border-radius: 3px;
+	z-index: 2;
+	opacity: 1;
+}
