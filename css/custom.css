@@ -119,7 +119,7 @@ body {
 
 .navbar-side {
     z-index: 1;
-    position: absolute;
+    position: relative;
     /*width: 250px;*/
     width: 100%;
 }

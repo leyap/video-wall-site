@@ -3,6 +3,10 @@
 	margin:0;
 	padding:0;
 	border: none;
+
+	/*border-color: #ff0088;*/
+	/*border-width: 0.3px;*/
+	/*border-style: solid;*/
 }
 
 [class^="spa-shell"] {
@@ -19,19 +23,22 @@
 }
 
 .spa-shell-head-logo {
-	top:4px;
-	left:4px;
-	width: 128px;
-	height: 32px;
+	/*top:4px;*/
+	top:0px;
+	/*left:4px;*/
+	left:0px;
+	width: 280px;
+	height: 40px;
 	background: #555555;
 }
 
 .spa-shell-head-func {
 	top:4px;
-	left:250px;
-	width: 200px;
+	left:280px;
+	width: 500px;
 	height: 32px;
-	background: #5cb85c;
+	background: #2aabd2;
+	padding:6px;
 }
 
 .spa-shell-head-acct {
@@ -128,8 +135,14 @@
 	margin:0px;
 	left: 280px;
 	right: 0;
+	top: 0;
+	bottom:0;
 	background: #ddd;
 	overflow: auto;
+
+	/*border-color: #9cae4c;*/
+	/*border-width: 1px;*/
+	/*border-style: solid;*/
 }
 
 .spa-x-closed .spa-shell-main-content {

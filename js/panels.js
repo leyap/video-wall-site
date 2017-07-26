@@ -8,7 +8,8 @@
         var gridctx;
         var frontctx;
         var isdown = false;
-        var isAdsorb = false;
+        var isAdsorb = true;
+        var isShowGrid = true;
         var rects = [];
         var oldHoldPointIndex;
 
@@ -57,6 +58,14 @@
 
             setBackRect();
             setGrid();
+
+            var showgridElem = document.getElementById("showgrid");
+            showgridElem.checked = isShowGrid;
+            var adsorbElem = document.getElementById("adsorb");
+            adsorbElem.checked = isAdsorb;
+
+            maxWidth = screen.width - 280;
+            maxHeight = screen.height - 80;
         };
 
         function calculateProportion(row, col) {
@@ -80,13 +89,16 @@
             eachGridWidth = totalWidth / gridcol;
             eachGridHeight = totalHeight /gridrow;
             drawGrid(gridrow, gridcol);
-            var checkgrid = document.getElementById("showgrid");
-            checkgrid.checked = true;
+
+            isShowGrid = true;
+            var showgridElem = document.getElementById("showgrid");
+            showgridElem.checked = isShowGrid;
         }
 
         function drawGrid(row, col) {
             gridctx.lineWidth = 1;
-            gridctx.strokeStyle = "rgba(200,250,0, 1)";
+            //gridctx.strokeStyle = "rgba(200,250,0, 1)";
+            gridctx.strokeStyle = "rgba(200,250,170, 1)";
             gridctx.beginPath();
             for (var i=0; i<=row; i++) {
                 if (i == row) {
@@ -119,6 +131,7 @@
         }
 
         function drawBackRect(row, col) {
+            /*
             backgroundarea.style.marginLeft = (-totalWidth/2)+"px";
             backgroundarea.style.marginTop = (-totalHeight/2)+"px";
             drawarea.style.marginLeft = (-totalWidth/2)+"px";
@@ -127,6 +140,7 @@
             ctrlGridArea.style.marginTop = (-totalHeight/2)+"px";
             frontArea.style.marginLeft = (-totalWidth/2)+"px";
             frontArea.style.marginTop = (-totalHeight/2)+"px";
+            */
 
             backgroundarea.width = totalWidth;
             backgroundarea.height = totalHeight;
@@ -138,7 +152,8 @@
             frontArea.height = totalHeight;
 
             //backctx.fillStyle = "#a1a2a3";
-            backctx.fillStyle = "#1b6d85";
+            //backctx.fillStyle = "#1b6d85";
+            backctx.fillStyle = "#464646";
             backctx.fillRect(0,0,totalWidth, totalHeight);
             backctx.lineWidth = 1;
             backctx.beginPath();
@@ -202,6 +217,19 @@
             }
         }
 
+        function clearWidget() {
+            rects = []
+            currentRectIndex = -1;
+            currentRect = "";
+            drawRects();
+        }
+
+        function unselect () {
+            currentRect = "";
+            currentRectIndex = -1;
+            drawRects();
+        }
+
         function drawAreaClear() {
             drawarea.width = drawarea.width
         }
@@ -210,14 +238,16 @@
             var checkGrid = document.getElementById("showgrid");
             if (checkGrid.checked) {
                 setGrid();
+                isShowGrid = true;
             } else {
                 clearGrid();
+                isShowGrid = false;
             }
         }
 
         function checkAdsorb() {
-            var checkAdsorb = document.getElementById("adsorb");
-            if (checkAdsorb.checked) {
+            var checkAdsorbCk = document.getElementById("adsorb");
+            if (checkAdsorbCk.checked) {
                 isAdsorb = true;
             } else {
                 isAdsorb = false;
@@ -270,15 +300,21 @@
                 var rect = rects[i];
                 if (rect == currentRect) {
                     //ctx.fillStyle = "rgba(50,100,50, 0.5)";
-                    ctx.fillStyle = "rgba(10,100,242, 0.4)";
+                    ctx.fillStyle = "rgba(50,50,255, 0.5)";
                     ctx.strokeStyle = "rgba(0,255,0, 1)";
                 } else {
-                    ctx.fillStyle = "rgba(40,109,212, 0.8)";
+                    ctx.fillStyle = "rgba(40,109,212, 0.6)";
                     ctx.strokeStyle = "rgba(0,50,0, 1)";
                 }
 
                 ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
                 ctx.strokeRect(rect.x, rect.y, rect.w, rect.h);
+
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "rgba(60,70,80, 0.6)";
+                ctx.strokeRect(rect.x+10, rect.y+10, rect.w-20, rect.h-20);
+                ctx.lineWidth = 1;
+
                 if (rect == currentRect) {
                     frontctx.beginPath();
                     frontctx.strokeStyle = "rgba(0,255,255,0.9)";
@@ -411,11 +447,16 @@
                     currentRect = rects[i];
                     currentRectIndex = i;
                 } else {
-                    var newRect = {x:x-eachWidth/2, y:y-eachHeight/2,w:eachWidth, h:eachHeight};
+                    var newRect;
+                    if (isAdsorb) {
+                        newRect = {x:x-eachGridWidth/2, y:y-eachGridHeight/2,w:eachGridWidth, h:eachGridHeight};
+                    } else {
+                        newRect = {x:x-eachWidth/2, y:y-eachHeight/2,w:eachWidth, h:eachHeight};
+                    }
                     rects.push(newRect);
                     currentRect = newRect;
                     currentRectIndex = rects.length-1;
-                    info.innerHTML = JSON.stringify(rects);
+                    //info.innerHTML = JSON.stringify(rects);
                 }
 
                 dx = x - currentRect.x;
@@ -430,7 +471,7 @@
                 oldRect.h = currentRect.h;
             }
 
-            drawRects();
+            // drawRects();
             return false;
         }
         function mousemove(e) {
